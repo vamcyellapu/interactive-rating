@@ -1,0 +1,139 @@
+$primary-color: #fb7413;
+$background-color: #121417;
+$dark-blue: #252d37;
+$white: #fff;
+$light-grey: #959eac;
+$medium-grey: #7c8798;
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-family: 'Overpass', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: $light-grey;
+  background-color: $background-color;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.container {
+  margin: 0 2rem;
+}
+.rating {
+  background: linear-gradient(to bottom, $dark-blue, darken($dark-blue, 6%));
+  max-width: 40.2rem;
+  padding: 3rem;
+  border-radius: 15px;
+  margin: 0 auto;
+  &__star {
+    background-color: lighten($dark-blue, 6%);
+    display: inline-flex;
+    padding: 1.5rem;
+    border-radius: 50%;
+    margin-bottom: 1.8rem;
+  }
+  &__heading {
+    color: $white;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+  }
+
+  &__numbers {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
+
+    .number {
+      padding: 1rem;
+      width: 4rem;
+      height: 4rem;
+      background-color: lighten($dark-blue, 2%);
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.2s;
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+      }
+      &:active {
+        background-color: $medium-grey;
+      }
+    }
+    .rating__rated {
+      background-color: $medium-grey;
+      color: $white;
+    }
+  }
+
+  &__btn {
+    width: 100%;
+    background-color: $primary-color;
+    color: $white;
+    border-radius: 30px;
+    border: none;
+    padding: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    cursor: pointer;
+    transition: all 0.2s;
+    &:hover {
+      background-color: $white;
+      color: $primary-color;
+    }
+  }
+}
+
+.thankyou {
+  padding: 3.5rem 3rem;
+  @extend .rating;
+  text-align: center;
+
+  &__heading {
+    color: $white;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+  }
+  &__rating {
+    background-color: lighten($dark-blue, 1%);
+    border-radius: 50px;
+    padding: 0.5rem 2rem;
+    display: inline-block;
+    color: $primary-color;
+    margin: 2rem 0;
+    p {
+      opacity: 0.8;
+    }
+  }
+}
+.display {
+  display: none;
+}
+.attribution a {
+  transition: color 0.2s;
+  &:hover {
+    color: $white;
+  }
+}
+@media screen and (min-width: 1024px) {
+  .rating {
+    border-radius: 30px;
+    &__heading {
+      font-size: 2.5rem;
+    }
+  }
+}
